@@ -16,8 +16,7 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado:
 ## 1. Clonar el repositorio
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
-cd <NOMBRE_DEL_REPOSITORIO>
+git clone https://github.com/BuitragoWilmer/PruebasTecnicas
 ```
 
 ---
