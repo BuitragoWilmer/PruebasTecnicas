@@ -1,0 +1,40 @@
+<div class="page">
+  <header class="page-header">
+    <h1>Gestión de tareas</h1>
+    <p class="subtitle">
+      Registra, asigna y da seguimiento a las tareas del equipo.
+    </p>
+  </header>
+
+  @if (errorMessage()) {
+    <div class="alert alert-error" role="alert">
+      <span>{{ errorMessage() }}</span>
+      <button type="button" (click)="dismissError()" aria-label="Cerrar">
+        ×
+      </button>
+    </div>
+  }
+
+  <main class="layout">
+    <section class="panel">
+      <h2>Nueva tarea</h2>
+      <app-task-form
+        [users]="users()"
+        (create)="onCreateTask($event)"
+      ></app-task-form>
+    </section>
+
+    <section class="panel panel-wide">
+      <h2>Tareas</h2>
+      <app-task-list
+        [tasks]="tasks()"
+        [users]="users()"
+        [statusFilter]="statusFilter()"
+        [loading]="loadingTasks()"
+        (filterChange)="onFilterChange($event)"
+        (statusChange)="onStatusChange($event)"
+      >
+      </app-task-list>
+    </section>
+  </main>
+</div>

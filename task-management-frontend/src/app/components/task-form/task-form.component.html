@@ -1,0 +1,32 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="task-form">
+  <div class="field">
+    <label for="title">Título *</label>
+    <input id="title" type="text" formControlName="title" placeholder="Ej. Diseñar wireframes" />
+    @if (titleControl.invalid && titleControl.touched) {
+      <span class="field-error">El título es obligatorio (máx. 200 caracteres).</span>
+    }
+  </div>
+
+  <div class="field">
+    <label for="description">Descripción</label>
+    <textarea id="description" formControlName="description" rows="3" placeholder="Opcional"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="assignedUserId">Asignar a *</label>
+    <select id="assignedUserId" formControlName="assignedUserId">
+      <option [ngValue]="null" disabled>Selecciona un usuario</option>
+      @for (user of users; track user.userId) {
+        <option [ngValue]="user.userId">{{ user.fullName }}</option>
+      }
+    </select>
+    @if (assignedUserIdControl.invalid && assignedUserIdControl.touched) {
+      <span class="field-error">Debes asignar la tarea a un usuario.</span>
+    }
+    @if (users.length === 0) {
+      <span class="field-hint">No hay usuarios cargados todavía.</span>
+    }
+  </div>
+
+  <button type="submit" class="btn-primary">Crear tarea</button>
+</form>

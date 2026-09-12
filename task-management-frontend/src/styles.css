@@ -1,0 +1,35 @@
+:root {
+  color-scheme: light;
+  --color-bg: #f7f7f5;
+  --color-surface: #ffffff;
+  --color-border: #dddad2;
+  --color-text: #23221e;
+  --color-text-muted: #6b6a63;
+  --color-accent: #2f5d50;
+  --color-accent-contrast: #ffffff;
+  --color-danger: #a3352b;
+  --color-danger-bg: #fbeceb;
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+button {
+  font-family: inherit;
+}
